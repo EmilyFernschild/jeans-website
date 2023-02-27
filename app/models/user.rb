@@ -12,4 +12,10 @@ class User < ApplicationRecord
     # Allows association to view list of users who follow a given user i.e. user.following
     has_many :following_relationships, foreign_key: :follower_id, class_name: 'Follow'
     has_many :following, through: :following_relationships, source: :following
+
+    validates_presence_of :name, :username, :email
+    validates_uniqueness_of :username, :email
+    validates :username, length: { in: 0..15 }
+    validates :password, length: { in: 8..20 }, presence: true
+    
 end
