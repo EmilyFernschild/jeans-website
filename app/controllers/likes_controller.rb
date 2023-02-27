@@ -1,17 +1,17 @@
 class LikesController < ApplicationController
-  before_action :set_like, only: %i[ show update destroy ]
+  before_action :set_like, only: %i[ destroy ]
 
   # GET /likes
-  def index
-    @likes = Like.all
+  # def index
+  #   @likes = Like.all
 
-    render json: @likes
-  end
+  #   render json: @likes
+  # end
 
   # GET /likes/1
-  def show
-    render json: @like
-  end
+  # def show
+  #   render json: @like
+  # end
 
   # POST /likes
   def create
@@ -25,13 +25,13 @@ class LikesController < ApplicationController
   end
 
   # PATCH/PUT /likes/1
-  def update
-    if @like.update(like_params)
-      render json: @like
-    else
-      render json: @like.errors, status: :unprocessable_entity
-    end
-  end
+  # def update
+  #   if @like.update(like_params)
+  #     render json: @like
+  #   else
+  #     render json: @like.errors, status: :unprocessable_entity
+  #   end
+  # end
 
   # DELETE /likes/1
   def destroy
