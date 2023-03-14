@@ -1,11 +1,10 @@
 class JeansController < ApplicationController
   before_action :set_jeans, only: %i[ show update destroy ]
+  skip_before_action :authorize, only: :index
 
   # GET /jeans
   def index
-    @jeans = Jeans.all
-
-    render json: @jeans
+    render json: Jean.all, status: :ok
   end
 
   # GET /jeans/1
@@ -15,7 +14,7 @@ class JeansController < ApplicationController
 
   # POST /jeans
   def create
-    @jeans = Jeans.new(jeans_params)
+    @jeans = Jean.new(jeans_params)
 
     if @jeans.save
       render json: @jeans, status: :created, location: @jeans
@@ -41,7 +40,7 @@ class JeansController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_jeans
-      @jeans = Jeans.find(params[:id])
+      @jeans = Jean.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
