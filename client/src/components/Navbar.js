@@ -9,6 +9,7 @@ function NavBar(){
                 <li><NavLink to= "/Login">Login</NavLink></li>
                 <li><NavLink to= "/Jeans">Jeans</NavLink></li>
                 <li><NavLink to= "/NewJeansForm">New Jeans</NavLink></li>
+                {/* <li><NavLink to= {`/user/${user.id}`}>Account</NavLink></li> */}
             </ul>
         </div>
     )

@@ -12,12 +12,23 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [jeans, setJeans] = useState([]);
+  // const [user, setUser] = useState(false);
 
   useEffect(() => {
     fetch("/jeans")
     .then((res) => res.json())
     .then((data) => setJeans(data))
   },[])
+
+  // useEffect(() => {
+  //   fetch("/user").then((r) => {
+  //     if (r.ok) {
+  //       r.json().then((user) => setUser(user));
+  //     }
+  //   })
+  // }, [])
+
+  // const updateUser = (user) => setUser(user)
 
   return (
       <div className="App">
@@ -26,7 +37,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/Signup" element={<Signup />} />
-          <Route path="/client/:id" element={<Account />} />
+          <Route path="/user/:id" element={<Account />} />
           <Route path="/Jeans" element={<JeansContainer jeans={jeans}/>} />
           <Route path="/NewJeansForm" element={<NewJeansForm />} />
         </Routes>
