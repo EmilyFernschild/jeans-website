@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show update destroy ]
+  skip_before_action :authorize, only: :create
 
   # GET /users
   def index
@@ -17,6 +18,7 @@ class UsersController < ApplicationController
   end
 
   # POST /users
+  # modified for signup feat
   def create
     user = User.create!(user_params)
     session[:user_id] = user.id 
