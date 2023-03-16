@@ -32,7 +32,7 @@ function App() {
 
   return (
       <div className="App">
-        <NavBar user={user}/>
+        <NavBar user={user} updateUser={updateUser}/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Login" element={<Login updateUser={updateUser} />} />
